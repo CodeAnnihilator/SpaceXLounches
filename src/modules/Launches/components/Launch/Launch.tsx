@@ -3,8 +3,10 @@ import { videoEmbedURI } from 'config/main'
 
 import IframeLoader from 'common/components/IframeLoader/IframeLoader'
 
+import { ILaunch } from 'common/types/entities'
+
 interface IProps {
-  data: any
+  data: ILaunch
 }
 
 const Lounch: React.SFC<IProps> = ({ data }) => {

@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  requestLaunches: () => dispatch(requestLaunches())
+  requestLaunches: () => dispatch(requestLaunches.request())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Launches)

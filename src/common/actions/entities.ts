@@ -1,14 +1,11 @@
-import types from '../constants/entities'
+import { createAsyncAction } from 'typesafe-actions'
 
+import { ILaunch } from 'common/types/entities'
 
-export const requestLaunches = () => ({ type: types.REQUEST_LAUNCHES })
+import { launches as launchesTypes } from '../constants/entities'
 
-export const requestLaunchesSuccess = data => ({
-  type: types.REQUEST_LAUNCHES_SUCCESS,
-  payload: data
-})
-
-export const requestLaunchesError = error => ({
-  type: types.REQUEST_LAUNCHES_ERROR,
-  payload: error
-})
+export const requestLaunches = createAsyncAction(
+  launchesTypes.REQUEST_LAUNCHES_REQUEST,
+  launchesTypes.REQUEST_LAUNCHES_SUCCESS,
+  launchesTypes.REQUEST_LAUNCHES_ERROR
+)<void, Array<ILaunch>, Error>()

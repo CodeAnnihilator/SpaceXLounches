@@ -1,14 +1,14 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 
-import { requestLaunches } from 'api/entities'
-import { requestLaunchesSuccess } from 'common/actions/entities'
+import { apiLaunches } from 'api/entities'
+import { requestLaunches } from 'common/actions/entities'
 
-import types from 'common/constants/entities'
+import { launches as launchesTypes } from 'common/constants/entities'
 
 function* requestLaunchesSaga() {
   try {
-    const { data } = yield call(requestLaunches)
-    yield put(requestLaunchesSuccess(data))
+    const { data } = yield call(apiLaunches)
+    yield put(requestLaunches.success(data))
   } catch (error) {
     console.log(error)
     // yield put(requestLaunchesError(error))
@@ -16,5 +16,5 @@ function* requestLaunchesSaga() {
 }
 
 export default function* watchEntities() {
-  yield takeLatest(types.REQUEST_LAUNCHES, requestLaunchesSaga)
+  yield takeLatest(launchesTypes.REQUEST_LAUNCHES_REQUEST, requestLaunchesSaga)
 }

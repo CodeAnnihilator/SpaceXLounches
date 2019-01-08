@@ -1,12 +1,14 @@
-import types from '../constants/entities'
+import { launches as launchesTypes } from '../constants/entities'
 
-const initialState = {
+import { ILaunches } from 'common/types/entities'
+
+const initialState: ILaunches = {
   launches: []
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.REQUEST_LAUNCHES_SUCCESS:
+    case launchesTypes.REQUEST_LAUNCHES_SUCCESS:
       return {
         ...state,
         launches: action.payload

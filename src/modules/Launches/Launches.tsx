@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import InfiniteScroll from 'common/components/InfiniteScroll/InfiniteScroll'
 import Lounch from './components/Launch/Launch'
 
+import { ILaunch } from 'common/types/entities'
+
 interface IProps {
   requestLaunches(): void;
-  launches: any;
+  launches: Array<ILaunch>;
 }
 
 export default class Launches extends Component<IProps> {

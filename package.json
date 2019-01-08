@@ -1,5 +1,5 @@
 {
-  "name": "SpaceXLounches",
+  "name": "SpaceXLaunches",
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
@@ -44,9 +44,11 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@types/history": "^4.7.2",
+    "@types/immutable": "^3.8.7",
     "@types/node": "^10.12.15",
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
+    "@types/redux-immutable": "^4.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
@@ -66,7 +68,7 @@
     "webpack": "^4.27.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.1.14",
     "webpack-hot-middleware": "^2.24.3"
   }
 }

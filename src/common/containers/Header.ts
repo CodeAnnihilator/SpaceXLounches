@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import Header from '../components/Header/Header'
 
 import {
-  getTotalLounches,
+  getTotalLaunches,
   getTotalSuccededLaunches,
   getTotalUpcomingLaunches
 } from '../selectors/entities'
 
 const mapStateToProps = state => ({
-  totalLounches: getTotalLounches(state),
+  totalLaunches: getTotalLaunches(state),
   totalSuccededLaunches: getTotalSuccededLaunches(state),
   totalUpcomingLaunches: getTotalUpcomingLaunches(state)
 })

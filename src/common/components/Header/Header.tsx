@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export interface IHeaderProps {
-  totalLounches: string;
+  totalLaunches: string;
   totalSuccededLaunches: string;
   totalUpcomingLaunches: string
 }
@@ -16,7 +16,7 @@ export default class Header extends React.Component<IHeaderProps> {
   render(): React.ReactNode {
     const { isDataShown } = this.state
     const {
-      totalLounches,
+      totalLaunches,
       totalSuccededLaunches,
       totalUpcomingLaunches
     } = this.props
@@ -28,7 +28,7 @@ export default class Header extends React.Component<IHeaderProps> {
         {
           isDataShown && (
             <div>
-              <div>total launches: { totalLounches }</div>
+              <div>total launches: { totalLaunches }</div>
               <div>succeded launches: { totalSuccededLaunches }</div>
               <div>upcoming launches: { totalUpcomingLaunches }</div>
             </div>

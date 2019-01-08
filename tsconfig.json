@@ -3,8 +3,13 @@
     "baseUrl": "./src",
     "outDir": "/dist",
     "module": "esnext",
-    "target": "es5",
-    "lib": ["es6", "dom"],
+    "target": "es2015",
+    "lib": [
+      "es2016",
+      "dom",
+      "dom.iterable",
+      "es2017.object"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -13,8 +18,18 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "suppressImplicitAnyIndexErrors": true,
+    // "noImplicitAny": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+
+    "newLine": "LF",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "downlevelIteration": true
   }
 }

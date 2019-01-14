@@ -131,3 +131,7 @@ export interface ILaunch {
 export interface ILaunches {
   launches: Array<ILaunch>;
 }
+
+export interface ITodo {
+  'text': string
+}

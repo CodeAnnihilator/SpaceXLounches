@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Launches from 'modules/Launches/containers/Launches'
 import Rockets from 'modules/Rockets/Rockets'
+import Todos from 'modules/Todos/Todos'
 
 import Header from 'common/containers/Header'
 
@@ -11,9 +12,10 @@ const Routes = () => (
   <div>
     <Header />
     <Switch>
-      <Redirect exact from='/' to='/launches' />
+      <Redirect exact from='/' to='/todos' />
       <Route path='/launches' component={Launches} />
       <Route path='/rockets' component={Rockets}/>
+      <Route path='/todos' component={Todos}/>
     </Switch>
   </div>
 )

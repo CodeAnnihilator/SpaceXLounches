@@ -1,32 +1,40 @@
 import React, { Component } from 'react'
-import Todo from './components/Todo'
+import _ from 'lodash'
+import TodoList from './components/containers/TodoListContainer'
 
-import { ITodo } from 'common/types/entities'
 
-interface IProps {
-  requestTodos(): void;
-  todos: Array<ITodo>;
-}
+import styles from './Todos.scss'
 
-export default class Todos extends Component<IProps> {
-  componentWillMount() {
-    const { requestTodos } = this.props
-    requestTodos()
+
+export default class Todos extends Component<any> {
+
+  // componentWillMount() {
+  //   //const { requestTodosLists } = this.props
+  //   //requestTodosLists()
+  // }
+
+  addTodoList = () => {
+    const uniqueId = _.uniqueId('Board_');
+    this.props.addTodoList(uniqueId)
   }
 
   render() {
-    const { todos } = this.props
-
+    const { todosLists } = this.props
+    console.log(this.props)
     return (
       <div>
+        <button onClick={this.addTodoList}>Добавить лист</button>
+        <div className={styles.container}>
         {
-          todos.map((todo, index) => (
-            <Todo
-              key={index}
-              data={todo}
+          todosLists.map(list => (
+            <TodoList
+              todos={list}
+              key={list.uniqID}
+              uniqID={list.uniqID}
             />
           ))
         }
+        </div>
       </div>
     )
   }

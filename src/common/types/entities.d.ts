@@ -133,5 +133,14 @@ export interface ILaunches {
 }
 
 export interface ITodo {
-  'text': string
+  text: string;
+}
+
+export interface ITodoList {
+  uniqID: string,
+  itodos: Array<ITodo>
+}
+
+export interface ITodoLists {
+  todoLists: Array<ITodoList>
 }

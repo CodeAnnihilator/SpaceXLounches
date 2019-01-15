@@ -1,14 +1,20 @@
 import { connect } from 'react-redux';
-import { requestTodos } from 'common/actions/todos';
+import { requestTodosLists } from 'common/actions/todos';
 import Todos from '../Todos'
-import { getTodos } from 'common/selectors/todos'
+import { getTodosLists } from 'common/selectors/todos'
 
 const mapStateToProps = state => ({
-  launches: getTodos(state)
+  todosLists: getTodosLists(state)
 })
 
 const mapDispatchToProps = dispatch => ({
-  requestTodos: () => dispatch(requestTodos.request())
+  requestTodosLists: () => dispatch(requestTodosLists.request()),
+  addTodoList: (uniq) => dispatch(requestTodosLists.success(
+    {
+      uniqID: uniq,
+      itodos: []
+    }
+  ))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todos);

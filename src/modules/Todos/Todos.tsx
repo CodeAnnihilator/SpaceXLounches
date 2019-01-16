@@ -14,13 +14,16 @@ export default class Todos extends Component<any> {
   // }
 
   addTodoList = () => {
-    const uniqueId = _.uniqueId('Board_');
-    this.props.addTodoList(uniqueId)
+    const listID = _.uniqueId('Board_');
+    this.props.addTodoList({
+      listID,
+      todos: []
+    })
   }
 
   render() {
     const { todosLists } = this.props
-    console.log(this.props)
+
     return (
       <div>
         <button onClick={this.addTodoList}>Добавить лист</button>
@@ -28,9 +31,9 @@ export default class Todos extends Component<any> {
         {
           todosLists.map(list => (
             <TodoList
-              todos={list}
-              key={list.uniqID}
-              uniqID={list.uniqID}
+              list={list}
+              key={list.listID}
+              listID={list.listID}
             />
           ))
         }

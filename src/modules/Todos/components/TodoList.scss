@@ -2,13 +2,32 @@
   background: white;
   border: 3px solid black;
   box-sizing: border-box;
-  padding: 20px;
-  min-width: 300px;
+  padding: 0 20px 20px 20px;
   min-height: 50px;
+  position: relative;
   margin: 10px;
 }
 
 .addTodoButton {
   background: white;
   border: 1px solid black;
+}
+
+.deleteListButton {
+  position: absolute;
+  top: 0;
+  background: url('../../../assets/close-button.svg');
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 50% 50%;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: grey;
+  }
 }

@@ -9,12 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestTodosLists: () => dispatch(requestTodosLists.request()),
-  addTodoList: (uniq) => dispatch(requestTodosLists.success(
-    {
-      uniqID: uniq,
-      itodos: []
-    }
-  ))
+  addTodoList: (newTodoList) => dispatch(requestTodosLists.success(newTodoList))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todos);

@@ -138,7 +138,7 @@ export interface ITodo {
 
 export interface ITodoList {
   uniqID: string,
-  itodos: Array<ITodo>
+  todos: Array<ITodo>
 }
 
 export interface ITodoLists {

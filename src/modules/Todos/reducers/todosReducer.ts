@@ -1,4 +1,10 @@
-import { todoList as types, removeTodoList as removeTypes } from 'common/constants/entities'
+import {
+  todoList as types,
+  removeTodoList as removeTypes,
+  addTodo as addTodoTypes,
+  // saveTodo as saveTodoTypes,
+  removeTodo as removeTodoTypes
+} from 'common/constants/entities'
 
 // import { ITodoLists } from 'common/types/entities'
 
@@ -16,8 +22,35 @@ export default (state = initialState, action) => {
     case removeTypes.TODO_LIST_REMOVE_SUCCESS:
       return {
         ...state,
-        lists: state.lists.filter(board => board.uniqID !== action.payload)
-    }
+        lists: state.lists.filter(board => board.listID !== action.payload)
+      }
+    case addTodoTypes.TODO_ADD_SUCCESS:
+      const { listID, text, todoID } = action.payload
+
+      return {
+        ...state,
+        lists: state.lists.map(list => {
+          if (list.listID === listID) {
+            list.todos.push({
+              todoID,
+              text
+            })
+          }
+          return list
+        })
+      }
+    case removeTodoTypes.TODO_REMOVE_SUCCESS:
+      return {
+        ...state,
+        lists: state.lists.map(list => {
+          if (list.listID === action.payload.listID) {
+            list.todos = list.todos.filter(todo => {
+              return todo.todoID !== action.payload.todoID
+            })
+          }
+          return list
+        })
+      }
     default:
       return state
   }

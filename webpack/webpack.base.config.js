@@ -25,6 +25,13 @@ export default {
           },
           'ts-loader'
         ]
+      },
+      {
+        test: /\.svg/,
+        use: {
+            loader: 'svg-url-loader',
+            options: {}
+        }
       }
     ]
   },

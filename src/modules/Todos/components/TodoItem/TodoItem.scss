@@ -1,0 +1,19 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 2px 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin: 0 0 0 5px;
+}
+
+.input {
+  margin: 5px;
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+}

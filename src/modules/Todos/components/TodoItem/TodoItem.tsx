@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import styles from './TodoItem.scss'
+
 interface IProps {
   todo: { todoID: string, text: string };
   todoIndex: string;
@@ -36,6 +38,10 @@ export default class TodoItem extends Component<IProps, IState> {
     this.setState({ isEditing: false})
   }
 
+  handleSave = ({key}) => {
+    if (key && key === 'Enter') this.onSave()
+  }
+
   onCancel = () => {
     this.setState({
       nextText: this.props.todo.text,
@@ -57,14 +63,17 @@ export default class TodoItem extends Component<IProps, IState> {
     const { todo, todoIndex } = this.props
     const { isEditing, nextText } = this.state
 
+    const todoText = <p>{todo.text}</p>
+
     return (
-      <div className="todoItem">
-        {todoIndex})
-        <br />
+      <div className={styles.todoItem}>
+        {todoIndex}{') '}
         {
-          !isEditing ? todo.text : (
+          !isEditing ? todoText : (
             <input
+              className={styles.input}
               type='text'
+              onKeyUp={this.handleSave}
               onChange={this.handleChange}
               value={nextText}
             />
@@ -72,14 +81,14 @@ export default class TodoItem extends Component<IProps, IState> {
         }
         { !isEditing && (
           <>
-            <div onClick={this.onEdit}>Изменить</div>
-            <div onClick={this.onTodoRemove}>Удалить</div>
+            <div className={styles.button} onClick={this.onEdit}>Изменить</div>
+            <div className={styles.button} onClick={this.onTodoRemove}>Удалить</div>
           </>
         )}
         { isEditing && (
           <>
-            <div onClick={this.onSave}>сохранить</div>
-            <div onClick={this.onCancel}>отмена</div>
+            <div className={styles.button} onClick={this.onSave}>сохранить</div>
+            <div className={styles.button} onClick={this.onCancel}>отмена</div>
           </>
         )}
       </div>

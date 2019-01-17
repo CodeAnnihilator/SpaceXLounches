@@ -2,8 +2,8 @@ import {
   todoList as types,
   removeTodoList as removeTypes,
   addTodo as addTodoTypes,
-  // saveTodo as saveTodoTypes,
-  removeTodo as removeTodoTypes
+  removeTodo as removeTodoTypes,
+  saveTodo as saveTodoTypes
 } from 'common/constants/entities'
 
 // import { ITodoLists } from 'common/types/entities'
@@ -46,6 +46,20 @@ export default (state = initialState, action) => {
           if (list.listID === action.payload.listID) {
             list.todos = list.todos.filter(todo => {
               return todo.todoID !== action.payload.todoID
+            })
+          }
+          return list
+        })
+      }
+    case saveTodoTypes.TODO_SAVE_SUCCESS:
+      return {
+        ...state,
+        lists: state.lists.map(list => {
+          if (list.listID === action.payload.listID) {
+            list.todos.forEach(todo => {
+              if (todo.todoID === action.payload.todoID) {
+                todo.text = action.payload.text
+              }
             })
           }
           return list

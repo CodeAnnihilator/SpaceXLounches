@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 
-import TodoItem from './containers/TodoItemContainer'
+import TodoItem from '../containers/TodoItemContainer'
 import styles from './TodoList.scss'
 
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { removeTodoLists, addTodoToBoard } from 'common/actions/todos'
 
-import TodoList from '../TodoList'
+import TodoList from '../TodoList/TodoList'
 import { getTodosLists } from 'common/selectors/todos'
 
 const mapStateToProps = state => ({
